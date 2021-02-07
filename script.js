@@ -58,7 +58,6 @@ function showMovieData(){
     for(amount in moviesData){
         let newText = document.createElement("li");
         let seen = moviesData[amount].seen;
-        //let IconButton = createButton(seen, amount);
 
         let dataInfo = {
             "currentButton": createButton(seen, amount),
@@ -67,8 +66,6 @@ function showMovieData(){
             "currentGenre": document.createTextNode(moviesData[amount].genre),
             "currentSummary": document.createTextNode(moviesData[amount].summary)
         }
-
-        //newText.appendChild(IconButton);
 
         for(iteration in dataInfo){
             newText.appendChild(brTag.cloneNode(true));
