@@ -1,35 +1,37 @@
 /**
- * Takes an object/array and returns number of elements.
  * @author Artur Panasiuk <artur-panasiuk592@wp.pl>
- * @param {object} oInput Object/array input.
+ */
+
+/**
+ * Takes an object/array and returns number of elements.
+ * @param {object} input Object/array input.
  * @returns {number}
  */
-function countAllObjectItems(oInput){
+function countAllObjectItems(input){
     let amountOfObjectElements = 0;
-    for(amount in oInput) {
+    for(amount in input) {
         amountOfObjectElements++;
     }
     return amountOfObjectElements;
 }
 /**
  * Counts all given keys by given value and returns number.
- * @param {object} oInput Input Object/array.
- * @param {string} sKey Checks this key for specific value.
- * @param {string} sValue Value that you want to search.
+ * @param {object} input Input Object/array.
+ * @param {string} key Checks this key for specific value.
+ * @param {string} value Value that you want to search.
  * @returns {number}
  */
-function countObjectValues(oInput, sKey, sValue){
-    let filterObject = oInput.filter(ob => ob[sKey] === sValue);
+function countObjectValues(input, key, value){
+    let filterObject = input.filter(ob => ob[key] === value);
     return countAllObjectItems(filterObject);
 }
 /**
  * Changes content of given HTML tag by given value.
- * @param {string} sTagId HTML tag.
- * @param {string} sValue Content that you want sTagId element to be.
+ * @param {string} tag HTML tag.
+ * @param {string} value Content that you want sTagId element to be.
  */
-function changeTextById(sTagId, sValue){
-    let newTextNode = sValue;
-    document.getElementById(sTagId).innerHTML = newTextNode;
+function changeTextById(tag, value){
+    document.getElementById(tag).innerHTML = value;
 }
 /**
  * Refreshes all values on frontend, that have been changed by other operations.
@@ -42,15 +44,15 @@ function refreshCounters(){
 }
 /**
  * Creates buttons for showMovieData functions
- * @param {string} sIsSeen Passed value to check moviesData.seen
- * @param {number} nLoopIteration Passed iteration number from function
+ * @param {string} isSeen Passed value to check moviesData.seen
+ * @param {number} loopIteration Passed iteration number from function
  * @returns {object} Returns ready to append button object
  */
-function createButton(sIsSeen, nLoopIteration){
+function createButton(isSeen, loopIteration){
     let newButton = document.createElement("button");
-    if(sIsSeen == "T"){
+    if(isSeen == "T"){
         newButton.innerHTML = "✔";
-    }else if(sIsSeen == "F"){
+    }else if(isSeen == "F"){
         newButton.innerHTML = "✖";
     }else{
         newButton.innerHTML = "{ERROR}";
@@ -70,7 +72,7 @@ function createButton(sIsSeen, nLoopIteration){
             console.log("ERROR");
         }
        })
-    })(nLoopIteration)
+    })(loopIteration)
 
     return newButton;
 }
